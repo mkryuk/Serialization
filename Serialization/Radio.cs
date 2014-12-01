@@ -1,18 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Serialization
 {
     [Serializable]
-    class Radio
+    public class Radio
     {
-        public bool hasTweeters;
-        public bool hasSubWoofers;
-        public double[] stationPresets;
+        public bool HasTweeters;
+        public bool HasSubWoofers;
+        public double[] StationPresets;
         [NonSerialized]
-        public string radioId = "XF-552RR6";
+        public string RadioId = "XF-552RR6";
     }
 }
