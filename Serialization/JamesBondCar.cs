@@ -7,10 +7,9 @@ using System.Threading.Tasks;
 namespace Serialization
 {
     [Serializable]
-    class UserPrefs
+    class JamesBondCar:Car
     {
-        public ConsoleColor BackgroundColor { get; set; }
-        public ConsoleColor ForegroundColor { get; set; }
-        public int FontSize { get; set; }
+        public bool canFly;
+        public bool canSubmerge;
     }
 }

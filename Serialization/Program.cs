@@ -12,18 +12,15 @@ namespace Serialization
     {
         static void Main(string[] args)
         {
-            var prefs = new UserPrefs();
-            prefs.BackgroundColor = ConsoleColor.Black;
-            prefs.ForegroundColor = ConsoleColor.Red;
-            prefs.FontSize = 25;
+            var jsCar = new JamesBondCar();
+            var bf = new BinaryFormatter();
 
-            var binaryFormatter = new BinaryFormatter();
-            using (Stream fStream = new FileStream("user.dat", FileMode.Create, FileAccess.ReadWrite, FileShare.None))
+            using (var writer = new FileStream("data.dat",FileMode.Create,FileAccess.ReadWrite))
             {
-                binaryFormatter.Serialize(fStream, prefs);
-                fStream.Seek(0, SeekOrigin.Begin);
-                var data = (UserPrefs) binaryFormatter.Deserialize(fStream);
-                Console.WriteLine("ForegroundColor:{0} BackgroundColor:{1} FontSize:{2}", data.ForegroundColor, data.BackgroundColor, data.FontSize);
+                bf.Serialize(writer,jsCar);
+                writer.Seek(0, SeekOrigin.Begin);
+                var data = (JamesBondCar) bf.Deserialize(writer);
+                Console.WriteLine(data);
             }
         }
     }
