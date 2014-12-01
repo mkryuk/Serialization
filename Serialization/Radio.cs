@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Xml.Serialization;
 
 namespace Serialization
 {
@@ -8,7 +9,7 @@ namespace Serialization
         public bool HasTweeters;
         public bool HasSubWoofers;
         public double[] StationPresets;
-        [NonSerialized]
+        [XmlAttribute]
         public string RadioId = "XF-552RR6";
     }
 }
